@@ -15,7 +15,7 @@ This project addresses the absence of official arm64 Docker images by providing 
 
 #### Image Information
 
-*   **Image Name:** `ghcr.io/notagshen/pgloader:latest`
+*   **Image Name:** `ghcr.io/notagshen/pgloader-arm:latest`
 *   **Base Image:** `ubuntu-24.04-arm`
 *   **Included Components:** Contains all necessary dependencies required for seamless execution on ARM64-based systems.
 
@@ -26,13 +26,13 @@ Our goal is to deliver an ARM64 image that mirrors the official x86_64 version i
 *   **Command-line Installation:**
 
     ```bash
-    docker pull ghcr.io/notagshen/pgloader:latest
-    docker run --rm -it ghcr.io/notagshen/pgloader:latest pgloader --version
+    docker pull ghcr.io/notagshen/pgloader-arm64:latest
+    docker run --rm -it ghcr.io/notagshen/pgloader-arm64:latest pgloader --version
     ```
 *   **Dockerfile Integration:**
 
     ```dockerfile
-    FROM ghcr.io/notagshen/pgloader:latest
+    FROM ghcr.io/notagshen/pgloader-arm64:latest
     ```
 
 #### Acquiring the Image
@@ -68,7 +68,7 @@ pgloader sub-commands. Check out
 [https://pgloader.readthedocs.io/](https://pgloader.readthedocs.io/en/latest/)。
 
 ```
-$ docker run --rm -it ghcr.io/notagshen/pgloader:latest pgloader --help
+$ docker run --rm -it ghcr.io/notagshen/pgloader-arm64:latest pgloader --help
 pgloader [ option ... ] SOURCE TARGET
   --help -h                       boolean  Show usage and exit.
   --version -V                    boolean  Displays pgloader version and exit.
