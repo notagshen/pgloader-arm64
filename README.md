@@ -1,4 +1,4 @@
-### pgloader Docker Image for ARM64
+### pgloader Docker Image for Linux ARM64
 
 This project addresses the absence of official arm64 Docker images by providing a dedicated image for the arm64 architecture. This image is built using official files to ensure compatibility and reliability.
 
