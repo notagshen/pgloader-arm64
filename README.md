@@ -1,3 +1,21 @@
+## Docker Image (arm64 Architecture Support)
+
+This project addresses the absence of official arm64 Docker images by providing a dedicated image for the arm64 architecture. This image is built using official files to ensure compatibility and reliability.
+
+*   **Image Name:** `ghcr.io/notagshen/pgloader:latest`
+*   **Base Image:** ubuntu-24.04-arm
+*   **Included Components:** Contains all necessary dependencies required for seamless execution on arm64-based systems.
+*   **Usage Instructions:**
+
+    *   **Command-line Installation:**
+        ```bash
+        docker pull ghcr.io/notagshen/pgloader:latest
+        ```
+    *   **Dockerfile Integration:**
+        ```dockerfile
+        FROM ghcr.io/notagshen/pgloader:latest
+        ```
+
 # PGLoader
 
 [![Build Status](https://travis-ci.org/dimitri/pgloader.svg?branch=master)](https://travis-ci.org/dimitri/pgloader)
@@ -24,7 +42,7 @@ never had a *year zero*).
 
 Full documentation is available online, including manual pages of all the
 pgloader sub-commands. Check out
-[https://pgloader.readthedocs.io/](https://pgloader.readthedocs.io/en/latest/).
+[https://pgloader.readthedocs.io/](https://pgloader.readthedocs.io/en/latest/)。
 
 ```
 $ pgloader --help
@@ -62,7 +80,7 @@ pgloader [ option ... ] SOURCE TARGET
 
 You can either give a command file to pgloader or run it all from the
 command line, see the
-[pgloader quick start](https://pgloader.readthedocs.io/en/latest/tutorial/tutorial.html#pgloader-quick-start) on
+[pgloader quick start](https://pgloader.readthedocs.io/en/latest/tutorial/tutorial.html#pgloader-quick-start) 于
 <https://pgloader.readthedocs.io> for more details.
 
     $ ./build/bin/pgloader --help
