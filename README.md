@@ -1,30 +1,53 @@
-## Docker Image (arm64 Architecture Support)
+### pgloader Docker Image for ARM64
 
 This project addresses the absence of official arm64 Docker images by providing a dedicated image for the arm64 architecture. This image is built using official files to ensure compatibility and reliability.
-
-*   **Image Name:** `ghcr.io/notagshen/pgloader:latest`
-*   **Base Image:** ubuntu-24.04-arm
-*   **Included Components:** Contains all necessary dependencies required for seamless execution on arm64-based systems.
-*   **Usage Instructions:**
-
-    *   **Command-line Installation:**
-        ```bash
-        docker pull ghcr.io/notagshen/pgloader:latest
-        ```
-    *   **Dockerfile Integration:**
-        ```dockerfile
-        FROM ghcr.io/notagshen/pgloader:latest
-        ```
-
-# PGLoader
 
 [![Build Status](https://travis-ci.org/dimitri/pgloader.svg?branch=master)](https://travis-ci.org/dimitri/pgloader)
 [![Join the chat at https://gitter.im/dimitri/pgloader](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dimitri/pgloader?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Read The Docs Status](https://readthedocs.org/projects/pgloader/badge/?version=latest&style=plastic)](http://pgloader.readthedocs.io/en/latest/)
 
+#### Overview
+
+
+
+> Source files: [https://github.com/dimitri/pgloader](https://github.com/dimitri/pgloader)
+
+
+#### Image Information
+
+*   **Image Name:** `ghcr.io/notagshen/pgloader:latest`
+*   **Base Image:** `ubuntu-24.04-arm`
+*   **Included Components:** Contains all necessary dependencies required for seamless execution on ARM64-based systems.
+
+#### Usage
+
+Our goal is to deliver an ARM64 image that mirrors the official x86_64 version in functionality. You can deploy this image just as you would the standard release.
+
+*   **Command-line Installation:**
+
+    ```bash
+    docker pull ghcr.io/notagshen/pgloader:latest
+    docker run --rm -it ghcr.io/notagshen/pgloader:latest pgloader --version
+    ```
+*   **Dockerfile Integration:**
+
+    ```dockerfile
+    FROM ghcr.io/notagshen/pgloader:latest
+    ```
+
+#### Acquiring the Image
+
+##### Downloading Pre-built Images
+
+We have been consistently compiling pre-built ARM64 images. You can find the complete range of versions on the GitHub Container Registry.
+
+
+
+## PGLoader Usage Instructions
+
 pgloader is a data loading tool for PostgreSQL, using the `COPY` command.
 
-Its main advantage over just using `COPY` or `\copy`, and over using a
+Its main advantage over just using `COPY` or `\copy`, 和 over using a
 *Foreign Data Wrapper*, is its transaction behaviour, where *pgloader*
 will keep a separate file of rejected data, but continue trying to
 `copy` good data in your database.
@@ -45,7 +68,7 @@ pgloader sub-commands. Check out
 [https://pgloader.readthedocs.io/](https://pgloader.readthedocs.io/en/latest/)。
 
 ```
-$ pgloader --help
+$ docker run --rm -it ghcr.io/notagshen/pgloader:latest pgloader --help
 pgloader [ option ... ] SOURCE TARGET
   --help -h                       boolean  Show usage and exit.
   --version -V                    boolean  Displays pgloader version and exit.
@@ -78,41 +101,6 @@ pgloader [ option ... ] SOURCE TARGET
 
 ## Usage
 
-You can either give a command file to pgloader or run it all from the
-command line, see the
-[pgloader quick start](https://pgloader.readthedocs.io/en/latest/tutorial/tutorial.html#pgloader-quick-start) 于
+ see the
+[pgloader quick start](https://pgloader.readthedocs.io/en/latest/tutorial/tutorial.html#pgloader-quick-start) 
 <https://pgloader.readthedocs.io> for more details.
-
-    $ ./build/bin/pgloader --help
-    $ ./build/bin/pgloader <file.load>
-
-For example, for a full migration from SQLite:
-
-    $ createdb newdb
-    $ pgloader ./test/sqlite/sqlite.db postgresql:///newdb
-
-Or for a full migration from MySQL, including schema definition (tables,
-indexes, foreign keys, comments) and parallel loading of the corrected data:
-
-    $ createdb pagila
-    $ pgloader mysql://user@localhost/sakila postgresql:///pagila
-
-## LICENCE
-
-pgloader is available under [The PostgreSQL
-Licence](http://www.postgresql.org/about/licence/).
-
-## INSTALL
-
-Please see full documentation at
-[https://pgloader.readthedocs.io/](https://pgloader.readthedocs.io/en/latest/install.html).
-
-If you're using debian, it's already available:
-
-    $ apt-get install pgloader
-
-If you're using docker, you can use the latest version built by the CI at
-each commit to the master branch:
-
-    $ docker pull ghcr.io/dimitri/pgloader:latest
-    $ docker run --rm -it ghcr.io/dimitri/pgloader:latest pgloader --version
