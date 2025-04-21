@@ -15,7 +15,7 @@ This project addresses the absence of official arm64 Docker images by providing 
 
 #### Image Information
 
-*   **Image Name:** `ghcr.io/notagshen/pgloader-arm:latest`
+*   **Image Name:** `ghcr.io/notagshen/pgloader-arm64:latest`
 *   **Base Image:** `ubuntu-24.04-arm`
 *   **Included Components:** Contains all necessary dependencies required for seamless execution on ARM64-based systems.
 
